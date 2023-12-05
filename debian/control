@@ -1,0 +1,26 @@
+Source: wayvnc-control
+Section: graphics
+Priority: optional
+Maintainer: Andri Yngvason <andri@yngvason.is>
+Uploaders:
+ Andri Yngvason <andri@yngvason.is>
+Build-Depends:
+ debhelper-compat (= 12),
+ make
+Standards-Version: 4.6.0.1
+Rules-Requires-Root: no
+Homepage: https://github.com/any1/wayvnc-control
+Vcs-Git: https://github.com/any1/wayvnc-control.git
+Vcs-Browser: https://github.com/any1/wayvnc-control
+
+Package: wayvnc-control
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+ wayvnc,
+ python3
+Provides:
+Recommends:
+Description: WayVNC control scripts
+ Scripts that automatically attach wayvnc to the active compositor.

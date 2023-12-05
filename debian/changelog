@@ -1,0 +1,5 @@
+wayvnc-control (0.0.1) unstable; urgency=low
+
+  * Create debian package for wayvnc-control
+
+ -- Andri Yngvason <andri@yngvason.is>  Mon, 05 Dec 2023 10:30:00 +0000

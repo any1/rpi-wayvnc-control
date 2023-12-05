@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+configure_wayvnc_control()
+{
+	systemd-sysusers ${DPKG_ROOT:+--root="$DPKG_ROOT"} vnc.conf
+	systemctl --system daemon-reload >/dev/null || true
+	deb-systemd-invoke enable 'wayvnc-control.service' >/dev/null || true
+	deb-systemd-invoke try-restart 'wayvnc.service' >/dev/null || true
+}
+
+case "$1" in
+	configure)
+		configure_wayvnc_control
+	;;
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+	*)
+		echo "postinstall called with unknown argument \`$1'" >&2
+		exit 1
+	;;
+esac

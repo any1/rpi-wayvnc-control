@@ -1,0 +1,6 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/any1/wayvnc-control
+
+Files: *
+Copyright: © Raspberry Pi Ltd
+License: BSD 3-Clause
