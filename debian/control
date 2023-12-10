@@ -18,7 +18,7 @@ Architecture: all
 Multi-Arch: foreign
 Depends:
  ${misc:Depends},
- wayvnc,
+ wayvnc (>=0.8),
  python3
 Provides:
 Recommends:
