@@ -60,14 +60,14 @@ class Program:
 
 		return False
 
-	async def handle_detached(self):
+	async def attach_any_with_retry(self):
 		while not await self.attach_any():
 			await asyncio.sleep(1.0)
 
 	async def process_message(self, message):
 		method = message['method']
 		if (method == 'detached'):
-			await self.handle_detached()
+			await self.attach_any_with_retry()
 
 	async def message_processor(self):
 		while True:
@@ -81,7 +81,7 @@ class Program:
 		self.reader, self.writer = await asyncio.open_unix_connection("/tmp/wayvnc/wayvncctl.sock")
 		self.tasks.append(asyncio.create_task(self.message_processor()))
 
-		await self.attach_any()
+		await self.attach_any_with_retry()
 		await self.send_command("event-receive")
 
 		while True:
